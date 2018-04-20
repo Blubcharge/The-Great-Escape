@@ -1,0 +1,7 @@
+﻿  ZombieArena.cpp
+i:\collage\hnd\graded unit\implementation\game atempt 1\zombiearena\zombiearena\zombiearena.cpp(36): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+i:\collage\hnd\graded unit\implementation\game atempt 1\zombiearena\zombiearena\zombiearena.cpp(37): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
+i:\collage\hnd\graded unit\implementation\game atempt 1\zombiearena\zombiearena\zombiearena.cpp(39): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
+i:\collage\hnd\graded unit\implementation\game atempt 1\zombiearena\zombiearena\zombiearena.cpp(632): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
+  ZombieArena.vcxproj -> I:\collage\HND\Graded unit\Implementation\game atempt 1\ZombieArena\Debug\ZombieArena.exe
+  ZombieArena.vcxproj -> I:\collage\HND\Graded unit\Implementation\game atempt 1\ZombieArena\Debug\ZombieArena.pdb (Full PDB)
