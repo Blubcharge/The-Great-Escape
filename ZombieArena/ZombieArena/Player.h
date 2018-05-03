@@ -54,7 +54,6 @@ public:
 	//player functions
 	FloatRect getPosition(); //where is player
 	Vector2f getCentre(); //centre of player sprite
-	Vector2f getGunCentre();//centre of gun position
 	float getRotation(); //angle player is facing
 	Sprite getSprite(); //send copy of sprite to main
 

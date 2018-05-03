@@ -124,14 +124,6 @@ int main()
 	pausedText.setPosition(400, 400);
 	pausedText.setString("Press Enter \n to continue");
 
-	// Game Over
-	Text gameOverText;
-	gameOverText.setFont(font);
-	gameOverText.setCharacterSize(125);
-	gameOverText.setFillColor(Color::White);
-	gameOverText.setPosition(250, 850);
-
-	gameOverText.setString("Press Enter to play");
 
 	// LEVELING up
 	Text levelUpText;
@@ -311,6 +303,9 @@ int main()
 					if (bulletSpare >= clipSize)
 					{
 						//plenty of bullets. reload.
+						int BulletTransfer = bulletsInClip;
+						bulletSpare += bulletsInClip;
+						
 						bulletsInClip = clipSize;
 						bulletSpare -= clipSize;
 						reload.play();
@@ -408,63 +403,21 @@ int main()
 		//handle leveling_up
 		if (state == State::LEVELING_UP)
 		{
-			//handle player levellingup
-			/*********  Number 1 pressed **********/
-			if (event.key.code == Keyboard::Num1)
-			{
-				// Increase fire rate
-				fireRate++;
+			
+				
 				state = State::PLAYERING;
-			}
+		
 
-			/*********  Number 2 pressed **********/
-			if (event.key.code == Keyboard::Num2)
-			{
-				// Increase clip size
-				clipSize += clipSize;
-				state = State::PLAYERING;
-			}
-
-			/*********  Number 3 pressed **********/
-			if (event.key.code == Keyboard::Num3)
-			{
-				// Increase health
-				player.upgradeHealth();
-				state = State::PLAYERING;
-			}
-
-			/*********  Number4 pressed **********/
-			if (event.key.code == Keyboard::Num4)
-			{
-				// Increase speed
-				player.upgradeSpeed();
-				state = State::PLAYERING;
-			}
-
-			/*********  Number 5 pressed **********/
-			if (event.key.code == Keyboard::Num5)
-			{
-				// Upgrade pickup
-				healthPickup.upgrade();
-				state = State::PLAYERING;
-			}
-
-			/*********  Number 6 pressed **********/
-			if (event.key.code == Keyboard::Num6)
-			{
-				// Upgrade pickup
-				ammoPickup.upgrade();
-				state = State::PLAYERING;
-			}
 
 			if (state ==State::PLAYERING)
 			{
 				// Increase the wave number
+
+				arena.width = 2000;
+				arena.height = 2000;
 				wave++;
 
 				//prepare level
-				arena.width = 500 * wave;
-				arena.height = 500 * wave;
 				arena.left = 0;
 				arena.top = 0;
 
@@ -623,7 +576,7 @@ int main()
 			if (player.getPosition().intersects
 				(ammoPickup.getPosition()) && ammoPickup.isSpawned())
 			{
-				bulletSpare += ammoPickup.gotIt();
+				//bulletSpare += ammoPickup.gotIt();
 				// Play a sound
 				reload.play();
 			}
@@ -732,7 +685,6 @@ int main()
 		if (state == State::GAME_OVER)
 		{
 			window.draw(spriteGameOver);
-			window.draw(gameOverText);
 			window.draw(scoreText);
 			window.draw(hiScoreText);
 		}
