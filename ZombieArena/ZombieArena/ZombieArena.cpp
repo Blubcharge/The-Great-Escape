@@ -413,8 +413,8 @@ int main()
 			{
 				// Increase the wave number
 
-				arena.width = 2000;
-				arena.height = 2000;
+				arena.width = 3000;
+				arena.height = 3000;
 				wave++;
 
 				//prepare level

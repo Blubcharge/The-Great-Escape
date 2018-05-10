@@ -43,8 +43,8 @@ int createBackground(VertexArray& rVA, IntRect arena)
 			{
 				//random floor texture
 				srand((int)time(0) + h * w - h);
-				int mOrG = (rand() % TILE_TYPES);
-				int verticalOffeset = mOrG *TILE_SIZE;
+				int TileSelected = 2;
+				int verticalOffeset = TileSelected *TILE_SIZE;
 
 				//set random tile types
 				rVA[currentVertex + 0].texCoords = Vector2f(0, 0 + verticalOffeset);
