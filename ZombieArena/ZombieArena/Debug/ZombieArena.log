@@ -1,75 +1,9 @@
-﻿Build started 10/05/2018 09:28:08.
+﻿Build started 10/05/2018 09:36:14.
      1>Project "E:\collage\HND\Graded unit\Implementation\game atempt 1\The-Great-Escape\ZombieArena\ZombieArena\ZombieArena.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"..\..\SFML-2.4.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yc"stdafx.h" /Fp"Debug\ZombieArena.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-         stdafx.cpp
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\CL.exe /c /I"..\..\SFML-2.4.2\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Zc:inline /Yu"stdafx.h" /Fp"Debug\ZombieArena.pch" /Fo"Debug\\" /Fd"Debug\vc140.pdb" /Gd /TP /analyze- /errorReport:prompt Bullet.cpp CreateBackground.cpp CreateHorde.cpp Pickup.cpp Player.cpp TextureHolder.cpp Zombie.cpp ZombieArena.cpp
-         ZombieArena.cpp
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\zombiearena.cpp(36): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\zombiearena.cpp(37): warning C4244: '=': conversion from 'unsigned int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\zombiearena.cpp(39): warning C4244: 'argument': conversion from 'float' to 'unsigned int', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\zombiearena.cpp(585): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-         Zombie.cpp
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\zombie.cpp(56): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\zombie.cpp(105): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-         TextureHolder.cpp
-         Player.cpp
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\player.cpp(8): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\player.cpp(9): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\player.cpp(24): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\player.cpp(25): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\player.cpp(45): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\player.cpp(46): warning C4244: '=': conversion from 'const float' to 'int', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\player.cpp(176): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\player.cpp(183): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\player.cpp(190): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\player.cpp(197): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\player.cpp(203): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\player.cpp(210): warning C4244: '+=': conversion from 'double' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\player.cpp(216): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-         Pickup.cpp
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\pickup.cpp(28): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\pickup.cpp(29): warning C4244: '=': conversion from 'const int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\pickup.cpp(54): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\pickup.cpp(108): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\pickup.cpp(112): warning C4244: '+=': conversion from 'double' to 'int', possible loss of data
-         CreateHorde.cpp
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createhorde.cpp(29): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createhorde.cpp(30): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createhorde.cpp(35): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createhorde.cpp(36): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createhorde.cpp(41): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createhorde.cpp(42): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createhorde.cpp(47): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createhorde.cpp(48): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
-         CreateBackground.cpp
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createbackground.cpp(27): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createbackground.cpp(28): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createbackground.cpp(29): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createbackground.cpp(30): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createbackground.cpp(38): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createbackground.cpp(39): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createbackground.cpp(50): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createbackground.cpp(51): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createbackground.cpp(51): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createbackground.cpp(52): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createbackground.cpp(52): warning C4244: 'argument': conversion from 'const int' to 'float', possible loss of data
-     1>e:\collage\hnd\graded unit\implementation\game atempt 1\the-great-escape\zombiearena\zombiearena\createbackground.cpp(53): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-         Bullet.cpp
-         Generating Code...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 14.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"E:\collage\HND\Graded unit\Implementation\game atempt 1\The-Great-Escape\ZombieArena\Debug\ZombieArena.exe" /INCREMENTAL /NOLOGO /LIBPATH:"..\..\SFML-2.4.2\lib" "sfml-graphics-d.lib" "sfml-window-d.lib" "sfml-system-d.lib" "sfml-network-d.lib" "sfml-audio-d.lib" kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /Debug /PDB:"E:\collage\HND\Graded unit\Implementation\game atempt 1\The-Great-Escape\ZombieArena\Debug\ZombieArena.pdb" /SUBSYSTEM:CONSOLE /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"E:\collage\HND\Graded unit\Implementation\game atempt 1\The-Great-Escape\ZombieArena\Debug\ZombieArena.lib" /MACHINE:X86 Debug\Bullet.obj
-         Debug\CreateBackground.obj
-         Debug\CreateHorde.obj
-         Debug\Pickup.obj
-         Debug\Player.obj
-         Debug\TextureHolder.obj
-         Debug\Zombie.obj
-         Debug\ZombieArena.obj
-         Debug\stdafx.obj
+     1>Link:
          ZombieArena.vcxproj -> E:\collage\HND\Graded unit\Implementation\game atempt 1\The-Great-Escape\ZombieArena\Debug\ZombieArena.exe
      1>Done Building Project "E:\collage\HND\Graded unit\Implementation\game atempt 1\The-Great-Escape\ZombieArena\ZombieArena\ZombieArena.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:30.66
+Time Elapsed 00:00:00.05
