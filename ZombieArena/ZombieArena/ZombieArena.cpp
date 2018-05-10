@@ -83,9 +83,9 @@ int main()
 	//hide the mouse pointer and replace it with a crosshair
 	window.setMouseCursorVisible(false);
 	Sprite spriteCrosshair;
-	Texture textureCrosshair = TextureHolder::GetTexture("graphics/crosshair.png");
+	Texture textureCrosshair = TextureHolder::GetTexture("graphics/crosshair(2).png");
 	spriteCrosshair.setTexture(textureCrosshair);
-	spriteCrosshair.setOrigin(25, 25);
+	spriteCrosshair.setOrigin(100, 100);
 
 	// Create a couple of pickups
 	Pickup healthPickup(1);
