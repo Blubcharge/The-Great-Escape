@@ -23,6 +23,11 @@ int createBackground(VertexArray& rVA, IntRect arena)
 	{
 		for (int h = 0; h < worldHeight; h++)
 		{
+			bool HousePresent = false;
+			if (h == 3 && w == 3)
+			{
+				HousePresent;
+			}
 			//position each vertex in current quad
 			rVA[currentVertex + 0].position = Vector2f(w*TILE_SIZE, h*TILE_SIZE);
 			rVA[currentVertex + 1].position = Vector2f(w*TILE_SIZE + TILE_SIZE, h*TILE_SIZE);
@@ -33,16 +38,42 @@ int createBackground(VertexArray& rVA, IntRect arena)
 			//grass, stone, bush,wall
 			if (h==0 || h==worldHeight-1|| w==0 || w == worldWidth-1)
 			{
+
 				//uise wall texture as we are at the edge
 				rVA[currentVertex + 0].texCoords = Vector2f(0, 0 + TILE_TYPES * TILE_SIZE);
 				rVA[currentVertex + 1].texCoords = Vector2f(TILE_SIZE, 0 + TILE_TYPES * TILE_SIZE);
 				rVA[currentVertex + 2].texCoords = Vector2f(TILE_SIZE, TILE_SIZE + TILE_TYPES * TILE_SIZE);
 				rVA[currentVertex + 3].texCoords = Vector2f(0, TILE_SIZE + TILE_TYPES * TILE_SIZE);
 			}
+			
+			else if (h == 3 && w == 3)
+			{
+				//amount of tiles in house sprite width/height
+				const int HouseDimention = 4;
+
+				for (int H = 0; H < HouseDimention; ++H)//horizontal
+				{
+					for (int V = 0; V < HouseDimention; V++)//vertical
+					{
+
+						int TileSelected = 3 + V;
+						int verticalOffeset = TileSelected *TILE_SIZE;
+						int horizontalOffset = ((H+1) * TILE_SIZE);
+
+
+						//set House tile types
+						rVA[currentVertex + 0].texCoords = Vector2f(0 + horizontalOffset, 0 + verticalOffeset);
+						rVA[currentVertex + 1].texCoords = Vector2f(TILE_SIZE + horizontalOffset, 0 + verticalOffeset);
+						rVA[currentVertex + 2].texCoords = Vector2f(TILE_SIZE + horizontalOffset, TILE_SIZE + verticalOffeset);
+						rVA[currentVertex + 3].texCoords = Vector2f(0 + horizontalOffset, TILE_SIZE + verticalOffeset);
+
+					}
+				}
+			}
 			else
 			{
 				//random floor texture
-				srand((int)time(0) + h * w - h);
+				//srand((int)time(0) + h * w - h);
 				int TileSelected = 2;
 				int verticalOffeset = TileSelected *TILE_SIZE;
 
@@ -52,6 +83,7 @@ int createBackground(VertexArray& rVA, IntRect arena)
 				rVA[currentVertex + 2].texCoords = Vector2f(TILE_SIZE, TILE_SIZE + verticalOffeset);
 				rVA[currentVertex + 3].texCoords = Vector2f(0, TILE_SIZE + verticalOffeset);
 			}
+
 
 
 			//position for next vertex

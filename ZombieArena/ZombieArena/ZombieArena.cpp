@@ -126,6 +126,7 @@ int main()
 
 
 	// LEVELING up
+	bool PlayerSpawned = false;
 	Text levelUpText;
 	levelUpText.setFont(font);
 	levelUpText.setCharacterSize(80);
@@ -218,6 +219,12 @@ int main()
 	shootBuffer.loadFromFile("sound/shoot.wav");
 	Sound shoot;
 	shoot.setBuffer(shootBuffer);
+
+	// Prepare the shootfail sound
+	SoundBuffer shootfailBuffer;
+	shootfailBuffer.loadFromFile("sound/shootfail.wav");
+	Sound shootfail;
+	shootfail.setBuffer(shootfailBuffer);
 
 	// Prepare the reload sound
 	SoundBuffer reloadBuffer;
@@ -395,6 +402,12 @@ int main()
 					shoot.play();
 					bulletsInClip--;
 				}
+				else if(gameTimeTotal.asMilliseconds() - lastPressed.asMilliseconds() > 1000 / fireRate&&bulletsInClip <= 0)
+				{
+					shootfail.play();
+
+					lastPressed = gameTimeTotal;
+				}
 			}//end FIre Bullet
 		}//endWASD
 
@@ -424,6 +437,11 @@ int main()
 				//pass vertex array by referance to createbackground function
 				int tileSize = createBackground(background, arena);
 				//spawn player
+				if (!PlayerSpawned)
+				{
+					PlayerSpawned;
+					player.spawn(arena, resolution, tileSize);
+				}
 				player.spawn(arena, resolution, tileSize);
 
 				// Configure the pickups
