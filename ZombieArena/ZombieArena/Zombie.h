@@ -6,9 +6,9 @@ class Zombie
 {
 private:
 	//speed for each type
-	const float BLOATER_SPEED = 40;
+	const float BLOATER_SPEED = 70;
 	const float CHASER_SPEED = 80;
-	const float CRAWLER_SPEED = 20;
+	const float CRAWLER_SPEED = 60;
 
 	//zombie health
 	const float BLOATER_HEALTH = 5;

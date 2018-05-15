@@ -21,8 +21,8 @@ Player::Player()
 void Player::spawn(IntRect arena, Vector2f resolution, int tileSize)
 {
 	//put player in middle of arena
-	m_Position.x = arena.width / 2;
-	m_Position.y = arena.height / 2;
+	m_Position.x = 100;
+	m_Position.y = 100;
 
 	//copy arena details to players m_arena 
 	m_Arena.left = arena.left;
@@ -70,6 +70,11 @@ Time Player::getLastHitTime()
 FloatRect Player::getPosition()
 {
 	return m_Sprite.getGlobalBounds();
+}
+
+FloatRect Player::setPosition(FloatRect NewPosition)
+{
+	m_Sprite.setPosition() = NewPosition;
 }
 
 Vector2f Player::getCentre()

@@ -53,6 +53,7 @@ public:
 
 	//player functions
 	FloatRect getPosition(); //where is player
+	FloatRect setPosition(FloatRect NewPosition);//sets the players location
 	Vector2f getCentre(); //centre of player sprite
 	float getRotation(); //angle player is facing
 	Sprite getSprite(); //send copy of sprite to main

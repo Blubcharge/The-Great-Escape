@@ -36,7 +36,7 @@ int main()
 	resolution.x = VideoMode::getDesktopMode().width;
 	resolution.y = VideoMode::getDesktopMode().height;
 	//create window
-	RenderWindow window(VideoMode(resolution.x, resolution.y), "Zombie Arena",Style::Fullscreen);
+	RenderWindow window(VideoMode(resolution.x, resolution.y), "Zombie Arena",Style::Titlebar);
 	//create view
 	View mainView(sf::FloatRect(0, 0, resolution.x, resolution.y));
 	//clock for timing everythin
@@ -56,6 +56,9 @@ int main()
 
 	//boundaries of arena
 	IntRect arena;
+
+
+
 
 	//create background vertexarray
 	VertexArray background;
@@ -115,6 +118,19 @@ int main()
 	// Load the font
 	Font font;
 	font.loadFromFile("fonts/zombiecontrol.ttf");
+
+
+	FloatRect previousPosition;
+
+	// Paused
+	Text PreviousPositiontext;
+	PreviousPositiontext.setFont(font);
+	PreviousPositiontext.setCharacterSize(25);
+	PreviousPositiontext.setFillColor(Color::White);
+	PreviousPositiontext.setPosition(500, 50);
+	PreviousPositiontext.setString("Previous Position: 0,0");
+
+
 
 	// Paused
 	Text pausedText;
@@ -216,7 +232,7 @@ int main()
 
 	// Prepare the shoot sound
 	SoundBuffer shootBuffer;
-	shootBuffer.loadFromFile("sound/shoot.wav");
+	shootBuffer.loadFromFile("sound/single-shot.wav");
 	Sound shoot;
 	shoot.setBuffer(shootBuffer);
 
@@ -249,6 +265,27 @@ int main()
 	pickupBuffer.loadFromFile("sound/pickup.wav");
 	Sound pickup;
 	pickup.setBuffer(pickupBuffer);
+
+	// Prepare the pickup sound
+	SoundBuffer MusicBuffer;
+	MusicBuffer.loadFromFile("sound/Dance Of Death.wav");
+	Sound Music;
+	Music.setBuffer(MusicBuffer);
+
+	// buildings
+	int const NumberOfHouses = 81;
+	int const NUM_OF_ROWS = 9;
+	int const NUM_OF_COLUMS = 9;
+	Sprite spriteHouse[NumberOfHouses];
+	Texture textureHouse = TextureHolder::GetTexture("graphics/House1.png");
+	for ( int n = 0; n < NumberOfHouses; n++)
+	{
+		spriteHouse[n].setTexture(textureHouse);
+		
+		spriteHouse[n].setPosition((300*(n/NUM_OF_COLUMS)+200), (300 * (n % NUM_OF_ROWS)+200));
+	}
+	
+
 	/*
 	**************************************************************************************************************************************************
 	**************************                           MAIN GAME LOOP                           ****************************************************
@@ -274,6 +311,7 @@ int main()
 				if (event.key.code == Keyboard::Return && state == State::PLAYERING)
 				{
 					state = State::PAUSED;
+
 					
 				}
 				else if (event.key.code == Keyboard::Return && state == State::PAUSED)
@@ -298,6 +336,8 @@ int main()
 					fireRate = 3;
 					// Reset the player's stats
 					player.resetPlayerStats();
+					Music.setLoop(true);
+					Music.play();
 				}
 				if (state == State::PLAYERING)
 				{
@@ -493,6 +533,7 @@ int main()
 			spriteCrosshair.setPosition(mouseWorldPosition);
 
 			//update the player
+			previousPosition = player.getPosition();
 			player.update(dtAsSeconds, Mouse::getPosition());
 
 			//make note of new position
@@ -506,7 +547,10 @@ int main()
 			{
 				if (zombies[i].isAlive())
 				{
+
 					zombies[i].update(dt.asSeconds(), playerPosition);
+					//houser loop
+
 				}
 			}
 
@@ -524,6 +568,22 @@ int main()
 			ammoPickup.update(dtAsSeconds);
 
 			// Collision detection
+			bool touching = false;
+			//player intercecting houses
+			for (int i = 0; i < NumberOfHouses; i++)
+			{
+				if (player.getPosition().intersects(spriteHouse[i].getGlobalBounds()))
+				{
+					touching = true;
+					player.setPosition(previousPosition) ;
+					break;
+				}
+				else
+				{
+					touching = false;
+				}
+			}
+
 			// Have any zombies been shot?
 			for (int i = 0; i < 100; i++)
 			{
@@ -602,6 +662,7 @@ int main()
 			 // size up the health bar
 			healthBar.setSize(Vector2f(player.getHealth() * 3, 50));
 
+
 			// Increment the number of frames since the previous update
 			framesSinceLastHUDUpdate++;
 			// re-calculate every fpsMeasurementFrameInterval frames
@@ -613,6 +674,7 @@ int main()
 				std::stringstream ssHiScore;
 				std::stringstream ssWave;
 				std::stringstream ssZombiesAlive;
+				std::stringstream ssPreviousPosition;
 				// Update the ammo text
 				ssAmmo << bulletsInClip << "/" << bulletSpare;
 				ammoText.setString(ssAmmo.str());
@@ -629,8 +691,23 @@ int main()
 				ssZombiesAlive << "Zombies:" << numZombiesAlive;
 				zombiesRemainingText.setString(ssZombiesAlive.str());
 				framesSinceLastHUDUpdate = 0;
-			}// End HUD update
 
+				if (touching == true)
+				{
+
+					ssPreviousPosition << "touching";
+				}
+				else
+				{
+
+					ssPreviousPosition << "not touching";
+				}
+				//ssPreviousPosition<<"Previous Position: " & previousPosition.contains ;
+				PreviousPositiontext.setString(ssPreviousPosition.str());
+
+			}// End HUD update
+			
+			
 
 		}//end of Update Frame
 
@@ -677,6 +754,13 @@ int main()
 			//draw the crosshair
 			window.draw(spriteCrosshair);
 
+			for (int i = 0; i < NumberOfHouses; i++)
+			{
+
+				window.draw(spriteHouse[i]);
+			}
+
+
 			// Switch to the HUD view
 			window.setView(hudView);
 			// Draw all the HUD elements
@@ -687,6 +771,7 @@ int main()
 			window.draw(healthBar);
 			window.draw(waveNumberText);
 			window.draw(zombiesRemainingText);
+			window.draw(PreviousPositiontext);
 
 		}//End of drawing the scene
 		if (state == State::LEVELING_UP)

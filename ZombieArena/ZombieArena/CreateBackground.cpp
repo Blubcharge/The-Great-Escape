@@ -45,7 +45,7 @@ int createBackground(VertexArray& rVA, IntRect arena)
 				rVA[currentVertex + 2].texCoords = Vector2f(TILE_SIZE, TILE_SIZE + TILE_TYPES * TILE_SIZE);
 				rVA[currentVertex + 3].texCoords = Vector2f(0, TILE_SIZE + TILE_TYPES * TILE_SIZE);
 			}
-			
+			/*
 			else if (h == 3 && w == 3)
 			{
 				//amount of tiles in house sprite width/height
@@ -70,6 +70,7 @@ int createBackground(VertexArray& rVA, IntRect arena)
 					}
 				}
 			}
+			*/
 			else
 			{
 				//random floor texture
