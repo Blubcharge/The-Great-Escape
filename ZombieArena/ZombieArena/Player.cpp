@@ -72,9 +72,17 @@ FloatRect Player::getPosition()
 	return m_Sprite.getGlobalBounds();
 }
 
-FloatRect Player::setPosition(FloatRect NewPosition)
+
+float Player::setXPosition(float NewPositionX)
 {
-	m_Sprite.setPosition() = NewPosition;
+	m_Position.x = NewPositionX;
+	return NULL;
+}
+
+float Player::setYPosition(float NewPositionY)
+{
+	m_Position.y = NewPositionY;
+	return NULL;
 }
 
 Vector2f Player::getCentre()

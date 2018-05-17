@@ -120,7 +120,7 @@ int main()
 	font.loadFromFile("fonts/zombiecontrol.ttf");
 
 
-	FloatRect previousPosition;
+	Vector2f previousPosition;
 
 	// Paused
 	Text PreviousPositiontext;
@@ -533,7 +533,7 @@ int main()
 			spriteCrosshair.setPosition(mouseWorldPosition);
 
 			//update the player
-			previousPosition = player.getPosition();
+			previousPosition = player.getCentre();
 			player.update(dtAsSeconds, Mouse::getPosition());
 
 			//make note of new position
@@ -575,7 +575,8 @@ int main()
 				if (player.getPosition().intersects(spriteHouse[i].getGlobalBounds()))
 				{
 					touching = true;
-					player.setPosition(previousPosition) ;
+					player.setXPosition(previousPosition.x);
+					player.setYPosition(previousPosition.y);
 					break;
 				}
 				else
