@@ -32,7 +32,7 @@ private:
 
 	//is it alive?
 	bool m_Alive;
-
+	bool useLastPosition = false;
 public:
 	//bullet hits zombie
 	bool hit();
@@ -45,7 +45,13 @@ public:
 
 	//display rectangle
 	FloatRect getPosition();
+	float setXPosition(float NewPositionX);//sets the players location
+	float setYPosition(float NewPositionY);//sets the players location
 
+	Vector2f lastPosition;
+	void oldPosition();
+
+	Vector2f getCentre(); //centre of player sprite
 	//copy of sprite to draw
 	Sprite getSprite();
 	//Update Zombie each frame

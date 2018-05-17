@@ -121,6 +121,8 @@ int main()
 
 
 	Vector2f previousPosition;
+	Vector2f previousZombiePosition;
+
 
 	// Paused
 	Text PreviousPositiontext;
@@ -273,16 +275,16 @@ int main()
 	Music.setBuffer(MusicBuffer);
 
 	// buildings
-	int const NumberOfHouses = 81;
-	int const NUM_OF_ROWS = 9;
-	int const NUM_OF_COLUMS = 9;
+	int const NumberOfHouses = 25;
+	int const NUM_OF_ROWS = 5;
+	int const NUM_OF_COLUMS = 5;
 	Sprite spriteHouse[NumberOfHouses];
 	Texture textureHouse = TextureHolder::GetTexture("graphics/House1.png");
 	for ( int n = 0; n < NumberOfHouses; n++)
 	{
 		spriteHouse[n].setTexture(textureHouse);
 		
-		spriteHouse[n].setPosition((300*(n/NUM_OF_COLUMS)+200), (300 * (n % NUM_OF_ROWS)+200));
+		spriteHouse[n].setPosition((600*(n/NUM_OF_COLUMS)+200), (600 * (n % NUM_OF_ROWS)+200));
 	}
 	
 
@@ -542,17 +544,7 @@ int main()
 			//make view centre around player
 			mainView.setCenter(player.getCentre());
 
-			//loop through each zombie and update them
-			for (int i = 0; i < numZombies; ++i)
-			{
-				if (zombies[i].isAlive())
-				{
-
-					zombies[i].update(dt.asSeconds(), playerPosition);
-					//houser loop
-
-				}
-			}
+			
 
 			//update any bullets that are in flight
 			for (int i = 0; i < 100; i++)
@@ -574,15 +566,12 @@ int main()
 			{
 				if (player.getPosition().intersects(spriteHouse[i].getGlobalBounds()))
 				{
-					touching = true;
+					
 					player.setXPosition(previousPosition.x);
 					player.setYPosition(previousPosition.y);
 					break;
 				}
-				else
-				{
-					touching = false;
-				}
+				
 			}
 
 			// Have any zombies been shot?
@@ -641,7 +630,42 @@ int main()
 						outputFile.close();
 					}
 				}
+				if (zombies[i].isAlive())
+				{
+
+					previousZombiePosition = zombies[i].getCentre();
+					zombies[i].update(dt.asSeconds(), playerPosition);
+
+				}
+				for (int h = 0; h < NumberOfHouses; h++)
+				{
+					if (zombies[i].getPosition().intersects(spriteHouse[h].getGlobalBounds()))
+					{
+						touching = true;
+						zombies[i].oldPosition();
+						break;
+					}
+					else
+					{
+
+						touching = false;
+					}
+				}
 			}// End player touched
+			 //loop through each zombie and update them
+
+			for (int i = 0; i < numZombies; ++i)
+			{
+				if (zombies[i].isAlive())
+				{
+					zombies[i].lastPosition = zombies[i].getCentre();
+					zombies[i].update(dt.asSeconds(), playerPosition);
+
+				}
+			}
+
+
+
 
 			 // Has the player touched health pickup
 			if (player.getPosition().intersects
@@ -772,7 +796,7 @@ int main()
 			window.draw(healthBar);
 			window.draw(waveNumberText);
 			window.draw(zombiesRemainingText);
-			window.draw(PreviousPositiontext);
+			//window.draw(PreviousPositiontext);
 
 		}//End of drawing the scene
 		if (state == State::LEVELING_UP)

@@ -71,6 +71,19 @@ FloatRect Zombie::getPosition()
 {
 	return m_Sprite.getGlobalBounds();
 }
+
+
+
+void Zombie::oldPosition()
+{
+	
+	useLastPosition = true;
+}
+
+Vector2f Zombie::getCentre()
+{
+	return m_Position;
+}
 Sprite Zombie::getSprite()
 {
 	return m_Sprite;
@@ -79,6 +92,8 @@ void Zombie::update(float elapsedTime, Vector2f playerLocation)
 {
 	float playerX = playerLocation.x;
 	float playerY = playerLocation.y;
+
+	lastPosition = m_Position;
 	//update Z position
 	if (playerX > m_Position.x)
 	{
@@ -99,7 +114,15 @@ void Zombie::update(float elapsedTime, Vector2f playerLocation)
 	}
 
 	//move sprite
-	m_Sprite.setPosition(m_Position);
+	if (useLastPosition == false)
+	{
+		m_Sprite.setPosition(m_Position);
+	}
+	else
+	{
+		m_Sprite.setPosition(lastPosition);
+		useLastPosition = false;
+	}
 
 	//face in right direction
 	float angle = (atan2(playerY - m_Position.y, playerX - m_Position.x) * 180) / 3.141;
