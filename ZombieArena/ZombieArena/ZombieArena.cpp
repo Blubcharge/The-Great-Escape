@@ -679,7 +679,7 @@ int main()
 			if (player.getPosition().intersects
 				(ammoPickup.getPosition()) && ammoPickup.isSpawned())
 			{
-				//bulletSpare += ammoPickup.gotIt();
+				bulletSpare += ammoPickup.gotIt();
 				// Play a sound
 				reload.play();
 			}
